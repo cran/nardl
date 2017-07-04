@@ -1,0 +1,11 @@
+101e2999e00ac625957f128ea1ec0e79 *DESCRIPTION
+9745ca564d5fa2a3f882aa1717263ca4 *NAMESPACE
+dee95d089104f6fe6908603eb92b3399 *R/boundstest.R
+c4bae9ddd6cdb8e30c1d0bc4645d97e3 *R/modsel.R
+0499c92d944a88c7488611c6dc535912 *R/nardl.R
+24ac6af7df6fc51a6d99fd56ae211f9e *data/fod.rda
+0e92051aae4edec892125fb1a107d934 *man/Nardl-package.Rd
+8f2959858f1eb6c82be0272d5a10dd50 *man/fod.Rd
+070ee5c94eceaeabd610e1e1e9601240 *man/nardl.Rd
+193a7f50349e20f8aa2a152c424de819 *man/nardl.formula.Rd
+8c1769e9c7572426e25e2e09ac27a271 *man/summary.nardl.Rd
