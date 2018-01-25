@@ -2,7 +2,7 @@
 % Please edit documentation in R/nardl.R
 \name{summary.nardl}
 \alias{summary.nardl}
-\title{Summary}
+\title{summary}
 \usage{
 \method{summary}{nardl}(object, ...)
 }
@@ -12,6 +12,6 @@
 \item{...}{not used}
 }
 \description{
-Summary
+summary
 }
 

@@ -112,7 +112,7 @@ bounds.test <- function(case,k,Fstat ){
   cat("\nF statistic ",Fstat,"\n\n")
   diagn <- "Existence of a Long Term relation is"
   if (Fstat>table[k,"95.1"])
-    cat(diagn,"not rejected at 5%")
+    cat(diagn,"not rejected at 5% ")
   if (Fstat<table[k,"95.0"])
     cat(diagn,"rejected at 5% (even assumming all regressors I(0))")
   if (Fstat<=table[k,"95.1"] && Fstat>=table[k,"95.0"])

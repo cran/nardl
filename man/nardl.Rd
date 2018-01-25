@@ -2,19 +2,24 @@
 % Please edit documentation in R/nardl.R
 \name{nardl}
 \alias{nardl}
-\title{method}
+\title{Nonlinear ARDL function}
 \usage{
-nardl(x, ...)
+nardl(formula, data, p, q, ic = c("aic", "bic", "R2"), graph)
 }
 \arguments{
-\item{x}{a numeric design matrix for the model.}
+\item{formula}{food~inf or food~inf|I(inf^2)}
 
-\item{...}{not used}
+\item{data}{the dataframe}
+
+\item{p}{max lags of dependent variable}
+
+\item{q}{max lags of independent variables}
+
+\item{ic}{: c("aic","bic","R2") criteria model selection}
+
+\item{graph}{1 to show stability tests plot}
 }
 \description{
-method
-}
-\author{
-Zaghdoudi Taha
+Nonlinear ARDL function
 }
 
