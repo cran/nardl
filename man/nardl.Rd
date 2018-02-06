@@ -4,22 +4,49 @@
 \alias{nardl}
 \title{Nonlinear ARDL function}
 \usage{
-nardl(formula, data, p, q, ic = c("aic", "bic", "R2"), graph)
+nardl(formula, data, p = NULL, q = NULL, ic = c("aic", "bic", "R2"),
+  maxlags = TRUE, graph = FALSE)
 }
 \arguments{
 \item{formula}{food~inf or food~inf|I(inf^2)}
 
 \item{data}{the dataframe}
 
-\item{p}{max lags of dependent variable}
+\item{p}{lags of dependent variable}
 
-\item{q}{max lags of independent variables}
+\item{q}{lags of independent variables}
 
 \item{ic}{: c("aic","bic","R2") criteria model selection}
 
-\item{graph}{1 to show stability tests plot}
+\item{maxlags}{if TRUE auto lags selection}
+
+\item{graph}{TRUE to show stability tests plot}
 }
 \description{
 Nonlinear ARDL function
 }
+\examples{
 
+############################################
+# Fit the nonlinear cointegrating autoregressive distributed lag model
+############################################
+# Load data
+data(fod)
+############################################
+#example 1: nardl with fixed p and q lags
+############################################
+reg<-nardl(food~inf,p=4,q=4,fod,ic="aic",maxlags = FALSE,graph = FALSE)
+summary(reg)
+
+############################################
+# example 2:auto selected lags (maxlags=TRUE)
+############################################
+reg<-nardl(food~inf,fod,ic="aic",maxlags = TRUE,graph = FALSE)
+summary(reg)
+
+############################################
+# example 3: Cusum and CusumQ plot (graph=TRUE)
+############################################
+reg<-nardl(food~inf,fod,ic="aic",maxlags = TRUE,graph = TRUE)
+
+}
