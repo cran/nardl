@@ -3,7 +3,7 @@ mplier<-function(alpha,beta,varphi,vpi,l,h,k){
   # k number of independent variables
   # h is the horizon over which multipliers will be computed
   # l max(p,q)
-  vphi<-matlab::zeros(1,l)
+  vphi<-matrix(c(0),1,l)
   vphi[1] = 1 + alpha + varphi[1]
   i=2
   while(i<=l){
@@ -13,7 +13,7 @@ mplier<-function(alpha,beta,varphi,vpi,l,h,k){
 
   vphi[l] = -varphi[l-1]
 
-  mtheta = matlab::zeros(l+1,k)
+  mtheta = matrix(c(0),l+1,k)
   mtheta[1,] = vpi[1]
   mtheta[2:3,] = vpi[2] - vpi[1] + beta
   i=3
@@ -22,7 +22,7 @@ mplier<-function(alpha,beta,varphi,vpi,l,h,k){
     i=i+1
   }
   mtheta[l+1,] = -vpi[l]
-  mpsi =matlab::zeros(h,k)
+  mpsi =matrix(c(0),h,k)
   #mpsi<-NULL
   mpsi[1,] = mtheta[1,]
   i=1
@@ -52,7 +52,6 @@ mplier<-function(alpha,beta,varphi,vpi,l,h,k){
 #'@param h is the horizon over which multipliers will be computed
 #'@importFrom stats lm AIC BIC as.formula model.frame model.matrix model.response na.omit sd update vcov embed resid coef
 #'@importFrom graphics abline legend lines par plot
-#'@import matlab
 #'@examples
 #'
 #' ############################
@@ -77,13 +76,14 @@ plotmplier<-function(model,np,k,h){
   mpp<-mplier(alpha,betap,varphi,vpip,np,h,k)
   mpn<-mplier(alpha,betan,varphi,vpin,np,h,k)
   x = seqa(0,1,(h+1))
-  yp<-cbind(matlab::zeros(1,1),t(mpp))
-  yn = cbind(matlab::zeros(1,1),t(mpn))
+
+  yp<-cbind(matrix(c(0),1,1),t(mpp))
+  yn = cbind(matrix(c(0),1,1),t(mpn))
   dmp<-mpp-mpn
   yrange<-range(yp,yn,(yp-yn))
   par(mar = c(5,4,4,8))
   plot(x,yp,main="Dynamic multiplier",type = "l",ylim =yrange ,xlab ="",
-       ylab = "", col="red")
+      ylab = "", col="red")
   lines(x,yn,col="blue")
   lines(x,(yp-yn),lty=2,col="darkgreen")
   abline(h=0)
@@ -94,7 +94,5 @@ plotmplier<-function(model,np,k,h){
   lty = c(1, 1, 2),
   cex=0.6,
   col=c("blue","red","darkgreen"))
-
-
 
 }
